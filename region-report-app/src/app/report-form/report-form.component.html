@@ -1,0 +1,23 @@
+<form [formGroup]="reportForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Выберите регионы (минимум 2)</mat-label>
+    <mat-select formControlName="multipleRegions" multiple (selectionChange)="onMultipleSelect($event.value)">
+      <mat-option *ngFor="let region of regions" [value]="region">{{region.name}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="reportForm.get('multipleRegions')?.hasError('minlength')">
+      Необходимо выбрать минимум 2 региона
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Выберите один регион</mat-label>
+    <mat-select formControlName="singleRegion" (selectionChange)="onSingleSelect($event.value)">
+      <mat-option *ngFor="let region of regions" [value]="region">{{region.name}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="reportForm.get('singleRegion')?.hasError('required')">
+      Необходимо выбрать один регион
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!reportForm.valid">Добавить отчет</button>
+</form>
