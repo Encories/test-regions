@@ -1,15 +1,90 @@
-form {
+.form-container {
+  background-color: black;
+  color: white;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  max-width: 500px;
-  margin: auto;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+
+  h4 {
+    align-self: center;
+  }
+
+  .form-content {
+    flex-grow: 1;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+
+    h2 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 20px;
+
+      .mat-select-value {
+        color: white;
+      }
+
+      .mat-select-arrow {
+        color: white;
+      }
+
+      .mat-form-field-label {
+        color: white;
+      }
+
+      .mat-form-field-underline {
+        background-color: white;
+      }
+    }
+  }
+
+  .button-container {
+    text-align: center;
+    padding-bottom: 20px;
+    background-color: black;
+
+    button {
+      background-color: #da7e3c;
+      color: white;
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #c96e2c;
+      }
+
+      &:disabled {
+        background-color: #a0a0a0;
+        cursor: not-allowed;
+      }
+    }
+  }
 }
 
-mat-form-field {
-  width: 100%;
+mat-pseudo-checkbox {
+  border-radius: 50% !important;
+  border-color: #da7e3c !important;
 }
 
-button {
-  align-self: flex-end;
+.mat-pseudo-checkbox-checked {
+  background-color: #da7e3c !important;
+  border-color: #da7e3c !important;
+
+  &::after {
+    color: white !important;
+  }
 }
+
